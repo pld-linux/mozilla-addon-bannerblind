@@ -1,32 +1,35 @@
 Summary:        Hide advertising banners
 Summary(pl):    Ukryj paskudne i denerwuj±ce bannery reklamowe
 Name:           mozilla-addon-bannerblind
+%define		_realname	bannerblind
 Version:        1.0rc1
 Release:        1
 License:        GPL
 Group:          X11/Applications/Networking
-Source0:        http://downloads.mozdev.org/bannerblind/bannerblind.xpi
-Source1:        bannerblind-installed-chrome.txt
-URL:            http://bannerblind.mozdev.org
+Source0:        http://downloads.mozdev.org/bannerblind/%{_realname}.xpi
+Source1:        %{_realname}-installed-chrome.txt
+URL:            http://bannerblind.mozdev.org/
 BuildRequires:  unzip
 Requires:       mozilla >= 1.0
 BuildRoot:      %{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
 %define         _chromedir      %{_libdir}/mozilla/chrome
-%define		_realname	bannerblind
 
 %description
-Hide advertising banners
+Plugin that hides advertising banners. It allows you to define your
+own unwanted banner dimensions.
+
 %description -l pl
 Ukryj paskudne i denerwuj±ce bannery reklamowe. Mo¿na definiowaæ w³asne
 rozmiary banerów do ukrycia.
 
 %prep
-%setup -q -c -T
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
+
 unzip %{SOURCE0} -d $RPM_BUILD_ROOT%{_chromedir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_chromedir}
 
@@ -39,7 +42,7 @@ cat %{_realname}-installed-chrome.txt >> installed-chrome.txt
 
 %postun
 cd %{_chromedir}
-cat installed-chrome.txt |grep -v "bannerblind.jar" > installed-chrome.txt.tmp
+cat installed-chrome.txt | grep -v "bannerblind.jar" > installed-chrome.txt.tmp
 cat installed-chrome.txt.tmp > installed-chrome.txt
 rm -f installed-chrome.txt.tmp
 
