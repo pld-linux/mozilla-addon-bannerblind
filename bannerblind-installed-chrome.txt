@@ -1,2 +1,2 @@
 content,install,url,jar:resource:/chrome/bannerblind.jar!/content/
-locale,install,url,resource:/chrome/bannerblind/locale/en-US/bannerblind/
+locale,install,url,jar:resource:/chrome/bannerblind.jar!/locale/en-US/bannerblind/
