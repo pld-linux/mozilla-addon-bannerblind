@@ -1,12 +1,12 @@
 Summary:	Hide advertising banners
-Summary(pl):	Ukryj paskudne i denerwuj±ce bannery reklamowe
-Name:		mozilla-addon-bannerblind
+Summary(pl):	Ukrywa paskudne i denerwuj±ce bannery reklamowe
 %define		_realname	bannerblind
+Name:		mozilla-addon-%{_realname}
 Version:	1.0rc1
 Release:	4
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://downloads.us-east1.mozdev.org/bannerblind/%{_realname}.xpi
+Source0:	http://downloads.mozdev.org/bannerblind/%{_realname}.xpi
 # Source0-md5:	5d33e45d4b95862841bdf6ae12a02a53
 Source1:	%{_realname}-installed-chrome.txt
 URL:		http://bannerblind.mozdev.org/
