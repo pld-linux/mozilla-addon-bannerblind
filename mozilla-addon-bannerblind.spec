@@ -16,15 +16,15 @@ Requires:	mozilla >= 1.0-7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
-%define         _chromedir      %{_libdir}/mozilla/chrome
+%define		_chromedir	%{_libdir}/mozilla/chrome
 
 %description
 Plugin that hides advertising banners. It allows you to define your
 own unwanted banner dimensions.
 
 %description -l pl
-Ukryj paskudne i denerwuj±ce bannery reklamowe. Mo¿na definiowaæ w³asne
-rozmiary banerów do ukrycia.
+Ukrywa paskudne i denerwuj±ce bannery reklamowe. Mo¿na definiowaæ
+w³asne rozmiary banerów do ukrycia.
 
 %prep
 
