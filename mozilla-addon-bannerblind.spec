@@ -6,8 +6,8 @@ Version:        1.0rc1
 Release:        3
 License:        GPL
 Group:          X11/Applications/Networking
-Source0:        http://downloads.mozdev.org/bannerblind/%{_realname}.xpi
-# Source0-md5:	7de6253582683cacd1ad0b76908924fa
+Source0:        http://downloads.us-east1.mozdev.org/bannerblind/%{_realname}.xpi
+# Source0-md5:	5d33e45d4b95862841bdf6ae12a02a53
 Source1:        %{_realname}-installed-chrome.txt
 URL:            http://bannerblind.mozdev.org/
 BuildRequires:  unzip
