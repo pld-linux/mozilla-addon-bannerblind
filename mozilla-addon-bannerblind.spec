@@ -1,9 +1,9 @@
 Summary:	Hide advertising banners
-Summary(pl):	Ukrywa paskudne i denerwuj±ce bannery reklamowe
+Summary(pl):	Ukrywanie paskudnych i denerwuj±cych bannerów reklamowych
 %define		_realname	bannerblind
 Name:		mozilla-addon-%{_realname}
 Version:	1.0rc1
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://downloads.mozdev.org/bannerblind/%{_realname}.xpi
@@ -11,6 +11,7 @@ Source0:	http://downloads.mozdev.org/bannerblind/%{_realname}.xpi
 Source1:	%{_realname}-installed-chrome.txt
 URL:		http://bannerblind.mozdev.org/
 BuildRequires:	unzip
+Requires(post,postun):	mozilla
 Requires(post,postun):	textutils
 Requires:	mozilla >= 1.0-7
 BuildArch:	noarch
@@ -40,11 +41,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 umask 022
-cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
+cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt ||:
+rm -f %{_libdir}/mozilla/components/{compreg,xpti}.dat \
+	%{_datadir}/mozilla/chrome/{chrome.rdf,overlayinfo/*/*/*.rdf} ||:
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regxpcom ||:
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regchrome ||:
 
 %postun
 umask 022
 cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
+rm -f %{_libdir}/mozilla/components/{compreg,xpti}.dat \
+	%{_datadir}/mozilla/chrome/{chrome.rdf,overlayinfo/*/*/*.rdf}
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regxpcom
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regchrome
 
 %files
 %defattr(644,root,root,755)
