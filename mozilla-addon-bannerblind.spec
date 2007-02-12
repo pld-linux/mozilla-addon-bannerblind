@@ -1,5 +1,5 @@
 Summary:	Hide advertising banners
-Summary(pl):	Ukrywanie paskudnych i denerwuj±cych bannerów reklamowych
+Summary(pl.UTF-8):   Ukrywanie paskudnych i denerwujÄ…cych bannerÃ³w reklamowych
 %define		_realname	bannerblind
 Name:		mozilla-addon-%{_realname}
 Version:	1.0rc1
@@ -23,9 +23,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Plugin that hides advertising banners. It allows you to define your
 own unwanted banner dimensions.
 
-%description -l pl
-Ukrywa paskudne i denerwuj±ce bannery reklamowe. Mo¿na definiowaæ
-w³asne rozmiary banerów do ukrycia.
+%description -l pl.UTF-8
+Ukrywa paskudne i denerwujÄ…ce bannery reklamowe. MoÅ¼na definiowaÄ‡
+wÅ‚asne rozmiary banerÃ³w do ukrycia.
 
 %prep
 
