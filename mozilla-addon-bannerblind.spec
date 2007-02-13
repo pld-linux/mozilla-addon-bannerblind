@@ -1,5 +1,5 @@
 Summary:	Hide advertising banners
-Summary(pl.UTF-8):   Ukrywanie paskudnych i denerwujących bannerów reklamowych
+Summary(pl.UTF-8):	Ukrywanie paskudnych i denerwujących bannerów reklamowych
 %define		_realname	bannerblind
 Name:		mozilla-addon-%{_realname}
 Version:	1.0rc1
